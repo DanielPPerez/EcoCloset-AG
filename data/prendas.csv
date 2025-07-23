@@ -1,0 +1,21 @@
+ID,Nombre,Tipo,Color,Estilo,Temporada,Imagen
+1,Camisa Blanca Formal,Top,Blanco,Oficina,Todo el año,prenda_1.avif
+2,Jeans Azules,Pantalón,Azul,Casual,Todo el año,prenda_2.avif
+3,Zapatos Negros de Cuero,Calzado,Negro,Oficina,Todo el año,prenda_3.avif
+4.Vestido Floral de Verano,Vestido,Multicolor,Casual,Verano,prenda_4.avif
+5,Suéter de Lana Gris,Top,Gris,Casual,Invierno,prenda_5.avif
+6,Pantalón de Vestir Negro,Pantalón,Negro,Oficina,Todo el año,prenda_6.avif
+7,Zapatillas Blancas,Calzado,Blanco,Casual,Verano,prenda_7.avif
+8,Chaqueta de Jean,Exterior,Azul,Casual,Todo el año,prenda_8.avif
+9,Blusa de Seda,Top,Rojo,Evento Social,Todo el año,prenda_9.avif
+10,Falda Midi Plisada,Falda,Beige,Oficina,Verano,prenda_10.avif
+11,Botines de Cuero,Calzado,Marrón,Casual,Invierno,prenda_11.avif
+12,Abrigo de Lana Camel,Exterior,Beige,Oficina,Invierno,prenda_12.avif
+13,Camiseta Básica Negra,Top,Negro,Casual,Todo el año,prenda_13.avif
+14,Pantalón Chino Beige,Pantalón,Beige,Casual,Verano,prenda_14.avif
+15,Tacones Nude,Calzado,Beige,Evento Social,Todo el año,prenda_15.avif
+16,Blazer Negro,Exterior,Negro,Oficina,Todo el año,prenda_16.avif
+17,Shorts de Lino,Pantalón,Blanco,Casual,Verano,prenda_17.avif
+18,Sandalias de Tiras,Calzado,Negro,Casual,Verano,prenda_18.avif
+19,Top de Lentejuelas,Top,Dorado,Evento Social,Todo el año,prenda_19.avif
+20,Pantalón Palazzo,Pantalón,Verde,Evento Social,Verano,prenda_20.avif
