@@ -1,21 +1,21 @@
-ID,Nombre,Tipo,Color,Estilo,Temporada,Imagen
-1,Camisa Blanca Formal,Top,Blanco,Oficina,Todo el año,prenda_1.avif
-2,Jeans Azules,Pantalón,Azul,Casual,Todo el año,prenda_2.avif
-3,Zapatos Negros de Cuero,Calzado,Negro,Oficina,Todo el año,prenda_3.avif
-4.Vestido Floral de Verano,Vestido,Multicolor,Casual,Verano,prenda_4.avif
-5,Suéter de Lana Gris,Top,Gris,Casual,Invierno,prenda_5.avif
-6,Pantalón de Vestir Negro,Pantalón,Negro,Oficina,Todo el año,prenda_6.avif
-7,Zapatillas Blancas,Calzado,Blanco,Casual,Verano,prenda_7.avif
-8,Chaqueta de Jean,Exterior,Azul,Casual,Todo el año,prenda_8.avif
-9,Blusa de Seda,Top,Rojo,Evento Social,Todo el año,prenda_9.avif
-10,Falda Midi Plisada,Falda,Beige,Oficina,Verano,prenda_10.avif
-11,Botines de Cuero,Calzado,Marrón,Casual,Invierno,prenda_11.avif
-12,Abrigo de Lana Camel,Exterior,Beige,Oficina,Invierno,prenda_12.avif
-13,Camiseta Básica Negra,Top,Negro,Casual,Todo el año,prenda_13.avif
-14,Pantalón Chino Beige,Pantalón,Beige,Casual,Verano,prenda_14.avif
-15,Tacones Nude,Calzado,Beige,Evento Social,Todo el año,prenda_15.avif
-16,Blazer Negro,Exterior,Negro,Oficina,Todo el año,prenda_16.avif
-17,Shorts de Lino,Pantalón,Blanco,Casual,Verano,prenda_17.avif
-18,Sandalias de Tiras,Calzado,Negro,Casual,Verano,prenda_18.avif
-19,Top de Lentejuelas,Top,Dorado,Evento Social,Todo el año,prenda_19.avif
-20,Pantalón Palazzo,Pantalón,Verde,Evento Social,Verano,prenda_20.avif
+ID,Nombre,Tipo,Color,Estilo,Temporada,Imagen,Sostenibilidad,Material
+1,Camisa Blanca Clásica,Top,Blanco,Clásico,Todo el año,prenda_1.avif,4,Algodón
+2,Jeans Azules Rectos,Pantalón,Azul,Casual,Todo el año,prenda_2.avif,3,Jean
+3,Zapatos de Cuero Negro,Calzado,Negro,Elegante,Todo el año,prenda_3.avif,4,Cuero
+4,Vestido Floral Bohemio,Vestido,Multicolor,Bohemio,Verano,prenda_4.avif,3,Algodón
+5,Suéter de Lana Gris,Top,Gris,Casual,Invierno,prenda_5.avif,5,Lana
+6,Pantalón de Vestir Negro,Pantalón,Negro,Clásico,Todo el año,prenda_6.avif,3,Poliéster
+7,Zapatillas Urbanas Blancas,Calzado,Blanco,Streetwear,Verano,prenda_7.avif,2,Sintético
+8,Chaqueta de Jean Azul,Exterior,Azul,Casual,Todo el año,prenda_8.avif,3,Jean
+9,Blusa de Seda Roja,Top,Rojo,Elegante,Todo el año,prenda_9.avif,4,Seda
+10,Falda Midi Minimalista,Falda,Beige,Minimalista,Verano,prenda_10.avif,3,Lino
+11,Botines de Cuero Marrón,Calzado,Marrón,Bohemio,Invierno,prenda_11.avif,4,Cuero
+12,Abrigo de Lana Camel,Exterior,Beige,Clásico,Invierno,prenda_12.avif,5,Lana
+13,Camiseta Negra Básica,Top,Negro,Minimalista,Todo el año,prenda_13.avif,4,Algodón
+14,Pantalón Chino Beige,Pantalón,Beige,Preppy,Verano,prenda_14.avif,3,Algodón
+15,Tacones Nude Elegantes,Calzado,Beige,Elegante,Todo el año,prenda_15.avif,2,Sintético
+16,Blazer Negro Estructurado,Exterior,Negro,Smart Casual,Todo el año,prenda_16.avif,3,Poliéster
+17,Shorts de Lino Blanco,Pantalón,Blanco,Bohemio,Verano,prenda_17.avif,5,Lino
+18,Sandalias de Tiras Negras,Calzado,Negro,Minimalista,Verano,prenda_18.avif,2,Cuero
+19,Sudadera Deportiva Gris,Top,Gris,Deportivo,Todo el año,prenda_19.avif,2,Algodón
+20,Pantalón Cargo Verde,Pantalón,Verde,Streetwear,Otoño,prenda_20.avif,3,Algodón
