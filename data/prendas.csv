@@ -1,21 +1,28 @@
 ID,Nombre,Tipo,Color,Estilo,Temporada,Imagen,Sostenibilidad,Material
-1,Camisa Blanca Clásica,Top,Blanco,Clásico,Todo el año,prenda_1.avif,4,Algodón
-2,Jeans Azules Rectos,Pantalón,Azul,Casual,Todo el año,prenda_2.avif,3,Jean
-3,Zapatos de Cuero Negro,Calzado,Negro,Elegante,Todo el año,prenda_3.avif,4,Cuero
-4,Vestido Floral Bohemio,Vestido,Multicolor,Bohemio,Verano,prenda_4.avif,3,Algodón
-5,Suéter de Lana Gris,Top,Gris,Casual,Invierno,prenda_5.avif,5,Lana
-6,Pantalón de Vestir Negro,Pantalón,Negro,Clásico,Todo el año,prenda_6.avif,3,Poliéster
-7,Zapatillas Urbanas Blancas,Calzado,Blanco,Streetwear,Verano,prenda_7.avif,2,Sintético
-8,Chaqueta de Jean Azul,Exterior,Azul,Casual,Todo el año,prenda_8.avif,3,Jean
-9,Blusa de Seda Roja,Top,Rojo,Elegante,Todo el año,prenda_9.avif,4,Seda
-10,Falda Midi Minimalista,Falda,Beige,Minimalista,Verano,prenda_10.avif,3,Lino
-11,Botines de Cuero Marrón,Calzado,Marrón,Bohemio,Invierno,prenda_11.avif,4,Cuero
-12,Abrigo de Lana Camel,Exterior,Beige,Clásico,Invierno,prenda_12.avif,5,Lana
-13,Camiseta Negra Básica,Top,Negro,Minimalista,Todo el año,prenda_13.avif,4,Algodón
-14,Pantalón Chino Beige,Pantalón,Beige,Preppy,Verano,prenda_14.avif,3,Algodón
-15,Tacones Nude Elegantes,Calzado,Beige,Elegante,Todo el año,prenda_15.avif,2,Sintético
-16,Blazer Negro Estructurado,Exterior,Negro,Smart Casual,Todo el año,prenda_16.avif,3,Poliéster
-17,Shorts de Lino Blanco,Pantalón,Blanco,Bohemio,Verano,prenda_17.avif,5,Lino
-18,Sandalias de Tiras Negras,Calzado,Negro,Minimalista,Verano,prenda_18.avif,2,Cuero
-19,Sudadera Deportiva Gris,Top,Gris,Deportivo,Todo el año,prenda_19.avif,2,Algodón
-20,Pantalón Cargo Verde,Pantalón,Verde,Streetwear,Otoño,prenda_20.avif,3,Algodón
+1,Camisa Blanca Clásica,Top,Blanco,Clásico,Todo el año,prenda_1.webp,4,Algodón
+2,Jeans Azules Rectos,Pantalón,Azul,Casual,Todo el año,prenda_2.png,3,Jean
+3,Zapatos de Cuero Negro,Calzado,Negro,Elegante,Todo el año,prenda_3.jpg,4,Cuero
+4,Suéter de Lana Gris,Top,Gris,Casual,Invierno,prenda_4.jpeg,5,Lana
+5,Pantalón de Vestir Negro,Pantalón,Negro,Clásico,Todo el año,prenda_5.jpeg,3,Poliéster
+6,Zapatillas Urbanas Blancas,Calzado,Blanco,Streetwear,Verano,prenda_6.jpeg,2,Sintético
+7,Chaqueta de Jean Azul,Exterior,Azul,Casual,Todo el año,prenda_7.jpg,3,Jean
+8,Botines de Cuero Marrón,Calzado,Marrón,Bohemio,Invierno,prenda_8.jpeg,4,Cuero
+9,Abrigo de Lana Camel,Exterior,Beige,Clásico,Invierno,prenda_9.avif,5,Lana
+10,Camiseta Negra Básica,Top,Negro,Minimalista,Todo el año,prenda_10.avif,4,Algodón
+11,Pantalón Chino Beige,Pantalón,Beige,Preppy,Verano,prenda_11.webp,3,Algodón
+12,Blazer Negro Estructurado,Exterior,Negro,Smart Casual,Todo el año,prenda_12.jpg,3,Poliéster
+13,Shorts de Lino Blanco,Pantalón,Blanco,Bohemio,Verano,prenda_13.avif,5,Lino
+14,Sandalias de Tiras Negras,Calzado,Negro,Minimalista,Verano,prenda_14.jpg,2,Cuero
+
+15,Pantalón Cargo Verde,Pantalón,Verde,Streetwear,Otoño,prenda_15.jpg,3,Algodón
+16,Camiseta Gráfica "The Five Solas",Top,Azul oscuro,"Casual / Temático",Todo el año,prenda_16.jpg,2,Algodón
+17,Polo de Punto Beige,Top,Beige,Smart Casual,Verano,prenda_17.avif,4,"Algodón / Seda"
+18,Abrigo Híbrido con Capucha,Exterior,Negro,"Smart Casual / Urbano",Otoño / Invierno,prenda_18.webp,3,"Poliéster / Mezcla sintética"
+19,Cárdigan de Punto con Logo,Top / Exterior,Negro,"Elegante / Smart Casual",Todo el año,prenda_19.jpg,4,"Lana / Cachemira"
+20,Zapatillas Deportivas Retro,Calzado,"Multicolor (Verde/Gris/Lima)","Deportivo / Retro",Todo el año,prenda_20.webp,2,"Sintético / Malla"
+21,Camiseta Vans Logo Pequeño,Top,Burdeos,"Streetwear / Casual",Todo el año,prenda_21.webp,2,Algodón
+22,Chaqueta Trucker con Borrego,Exterior,Negro,"Casual / Urbano",Invierno,prenda_22.jpg,3,"Piel sintética / Poliéster"
+23,Camiseta Vans Logo Clásico,Top,Beige,"Streetwear / Casual",Todo el año,prenda_23.jpg,2,Algodón
+24,Jeans Negros Rotos,Pantalón,Negro,"Streetwear / Urbano",Todo el año,prenda_24.jpg,1,Jean
+25,Pantalón Deportivo Under Armour,Pantalón,Negro,"Deportivo / Athleisure",Todo el año,prenda_25.jpg,2,Poliéster
+26,Camiseta Logo Superman,Top,Negro,"Temático / Casual",Todo el año,prenda_26.jpg,2,Algodón

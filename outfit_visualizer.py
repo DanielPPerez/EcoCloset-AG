@@ -2,6 +2,7 @@
 import os
 from PIL import Image, ImageDraw, ImageFont
 import rembg
+from utils import reescale_image_if_needed
 
 # Definir carpetas para las imágenes procesadas
 IMG_FOLDER = 'imagenes'
@@ -70,6 +71,8 @@ def create_outfit_image(outfit_prendas, outfit_filename):
         if not img_path:
             continue
 
+        # Reescalar la imagen si es muy grande
+        img_path = reescale_image_if_needed(img_path)
         try:
             img = Image.open(img_path)
             

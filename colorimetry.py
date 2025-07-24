@@ -1,116 +1,20 @@
 # colorimetry.py
 
-# --- 1. BASES DE DATOS DE ATRIBUTOS EXPANDIDAS ---
-
-# Lista de tonos de piel adaptada para ser más comprensible en Latinoamérica.
-# Se utilizan descriptores comunes en lugar de traducciones literales.
-TONOS_DE_PIEL = [
-    # Tonos Claros
-    'Marfil',           # (Ivory)
-    'Porcelana',        # (Porcelain)
-    'Marfil Pálido',    # (Pale Ivory)
-    'Marfil Cálido',    # (Warm Ivory)
-    'Arena',            # (Sand)
-    'Beige Rosado',     # (Rose Beige)
-    
-    # Tonos Medios
-    'Beige Neutro',     # (Limestone)
-    'Beige',            # (Beige)
-    'Canela',           # (Sienna)
-    'Miel',             # (Honey)
-    'Trigueño',         # (Band - término muy común en LATAM)
-    'Almendra',         # (Almond)
-
-    # Tonos Oscuros
-    'Castaño',          # (Chestnut)
-    'Bronce',           # (Bronze)
-    'Café Oscuro',      # (Umber)
-    'Dorado',           # (Golden)
-    'Expresso'          # (Espresso)
-]
-
-# Lista expandida con 20 colores de ojos comunes y sus variaciones.
-COLORES_DE_OJOS = [
-    'Marrón oscuro', 'Marrón café', 'Marrón claro', 'Marrón miel', 'Avellana', 
-    'Ámbar', 'Verde', 'Verde oliva', 'Verde esmeralda', 'Verde grisáceo',
-    'Azul oscuro', 'Azul rey', 'Azul claro', 'Azul grisáceo', 'Azul verdoso',
-    'Gris', 'Gris claro', 'Gris oscuro', 'Negro', 'Violeta'
-]
-
-# Lista expandida con 20 colores de cabello comunes, incluyendo tonos naturales y de fantasía.
-COLORES_DE_CABELLO = [
-    'Negro azabache', 'Negro natural', 'Castaño oscuro', 'Castaño medio', 'Castaño claro',
-    'Castaño ceniza', 'Castaño rojizo (Caoba)', 'Pelirrojo cobrizo', 'Pelirrojo natural', 'Borgoña',
-    'Rubio platino', 'Rubio ceniza', 'Rubio dorado', 'Rubio fresa', 'Rubio oscuro',
-    'Gris plata', 'Blanco', 'Azul fantasía', 'Rosa fantasía', 'Violeta fantasía'
-]
-
-# Lista expandida de colores neutros universales (más de 10).
-NEUTROS_UNIVERSALES = [
-    'Negro', 'Blanco', 'Gris carbón', 'Gris perla', 'Azul marino', 
-    'Beige', 'Camel', 'Marfil', 'Crema', 'Marrón café', 'Nude'
-]
-
-# Paletas de colores expandidas para cada estación (más de 20 por estación).
-PALETAS_POR_ESTACION = {
-    'Invierno': [ # Colores fríos, intensos y de alto contraste
-        'Negro', 'Blanco óptico', 'Rojo rubí', 'Azul rey', 'Verde esmeralda', 
-        'Fucsia', 'Magenta', 'Violeta intenso', 'Plata', 'Gris carbón', 
-        'Azul marino', 'Verde botella', 'Cereza', 'Hielo azul', 'Hielo rosa',
-        'Amarillo limón', 'Borgoña', 'Verde pino', 'Azul cobalto', 'Púrpura'
-    ],
-    'Verano': [ # Colores fríos, suaves y de bajo contraste
-        'Blanco roto', 'Gris perla', 'Azul polvo', 'Lavanda', 'Rosa palo', 
-        'Menta', 'Frambuesa suave', 'Verde salvia', 'Azul cielo', 'Gris topo',
-        'Nude rosado', 'Malva', 'Verde agua', 'Amarillo pastel', 'Azul marino suave',
-        'Ciruela suave', 'Cacao', 'Verde jade', 'Orquídea', 'Celeste'
-    ],
-    'Otoño': [ # Colores cálidos, terrosos y de bajo contraste
-        'Marrón chocolate', 'Beige', 'Camel', 'Verde oliva', 'Terracota', 
-        'Mostaza', 'Naranja quemado', 'Dorado', 'Bronce', 'Verde musgo',
-        'Marfil', 'Crema', 'Rojo ladrillo', 'Salmón', 'Verde militar',
-        'Pimentón', 'Calabaza', 'Ocre', 'Cobre', 'Turquesa oscuro'
-    ],
-    'Primavera': [ # Colores cálidos, brillantes y de alto contraste
-        'Marfil', 'Coral', 'Turquesa', 'Amarillo brillante', 'Verde césped', 
-        'Azul aciano', 'Melocotón', 'Rojo amapola', 'Dorado claro', 'Camel claro',
-        'Verde lima', 'Rosa intenso', 'Salmón brillante', 'Violeta claro', 'Aguamarina',
-        'Mandarina', 'Fresa', 'Verde menta brillante', 'Azul cielo brillante', 'Tangerina'
-    ]
-}
-
+from Conocimientos import TONOS_DE_PIEL, COLORES_DE_OJOS, COLORES_DE_CABELLO, NEUTROS_UNIVERSALES, PALETAS_POR_ESTACION, ATRIBUTOS_DE_COLOR
 
 # --- 2. LÓGICA DE ANÁLISIS DE COLORIMETRÍA (MÁS COMPLEJA) ---
 
 # Mapeo de atributos a subtonos (Cálido/Frío) y niveles de contraste (Claro/Oscuro)
 # Esta es la "inteligencia" que alimenta la función de determinación.
-ATRIBUTOS_DE_COLOR = {
-    'piel': {
-        'Frío': ['Porcelain', 'Pale Ivory', 'Rose Beige', 'Band', 'Umber'],
-        'Cálido': ['Warm Ivory', 'Sand', 'Sienna', 'Honey', 'Golden', 'Chestnut', 'Bronze', 'Espresso'],
-        'Neutro': ['Ivory', 'Limestone', 'Beige', 'Almond']
-    },
-    'cabello': {
-        'Claro': ['Rubio platino', 'Rubio ceniza', 'Rubio dorado', 'Rubio fresa', 'Blanco'],
-        'Oscuro': ['Negro azabache', 'Negro natural', 'Castaño oscuro', 'Castaño rojizo (Caoba)', 'Borgoña'],
-        'Frío': ['Negro azabache', 'Castaño ceniza', 'Rubio platino', 'Rubio ceniza', 'Gris plata', 'Azul fantasía'],
-        'Cálido': ['Castaño rojizo (Caoba)', 'Pelirrojo cobrizo', 'Rubio dorado', 'Rubio fresa', 'Castaño medio']
-    }
-}
 
+
+# --- FUNCIONES DE COLORIMETRÍA ---
 
 def determinar_estacion_colorimetria(tono_piel, color_ojos, color_pelo):
     """
-    Determina la estación de colorimetría con una lógica más robusta basada en un sistema de puntuación.
-    Analiza el subtono dominante (frío vs. cálido) y el nivel de contraste.
-
-    Args:
-        tono_piel (str): El tono de piel del usuario.
-        color_ojos (str): El color de ojos del usuario.
-        color_pelo (str): El color de pelo del usuario.
-
-    Returns:
-        str: La estación de colorimetría sugerida ('Invierno', 'Verano', 'Otoño', 'Primavera').
+    Determina la estación de colorimetría del usuario.
+    Analiza el subtono dominante (frío/cálido) y el contraste entre piel y cabello.
+    Usa ATRIBUTOS_DE_COLOR para puntuar y decide entre Invierno, Verano, Otoño o Primavera.
     """
     puntuacion_calido = 0
     puntuacion_frio = 0
@@ -152,16 +56,9 @@ def determinar_estacion_colorimetria(tono_piel, color_ojos, color_pelo):
 
 def obtener_paleta_recomendada(estacion, colores_favoritos_usuario=[]):
     """
-    Construye la paleta de colores final para el usuario, combinando la paleta de su estación,
-    los neutros universales y sus colores favoritos personales.
-
-    Args:
-        estacion (str): La estación de colorimetría calculada.
-        colores_favoritos_usuario (list, optional): Una lista de los colores favoritos del usuario. 
-                                                     Defaults to [].
-
-    Returns:
-        list: Una lista única de colores recomendados.
+    Construye la paleta de colores recomendada para el usuario.
+    Combina la paleta de la estación, los neutros universales y los colores favoritos del usuario.
+    Devuelve una lista única de colores.
     """
     # --- Validación de Entrada ---
     # Si la estación no es válida, devolvemos una paleta segura de neutros y los favoritos del usuario.

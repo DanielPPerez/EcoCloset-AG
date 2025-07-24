@@ -1,73 +1,23 @@
 # compatibility.py
 import pandas as pd
 from itertools import product
+from Conocimientos import ESTILOS_ROPA, REGLAS_COMBINACION_ESTILO, REGLAS_COMBINACION_MATERIAL
 
-# --- BASE DE CONOCIMIENTO DE ESTILISMO PROFESIONAL ---
-
-# 1. Lista curada de estilos para la selección del usuario.
-# Basada en tu investigación, consolidando y definiendo arquetipos claros.
-ESTILOS_ROPA = [
-    'Casual',
-    'Clásico',
-    'Deportivo',
-    'Elegante',
-    'Minimalista',
-    'Bohemio',
-    'Romántico',
-    'Vintage',
-    'Preppy',
-    'Streetwear',
-    'Grunge',
-    'Rockero',
-    'Glam',
-    'Creativo',
-    'Smart Casual'
-]
-
-# 2. Matriz de compatibilidad de ESTILOS (Puntuación de 0.0 a 1.0)
-# Define qué tan bien se mezclan dos estilos en un mismo atuendo.
-# Una puntuación de 0.0 significa que es una combinación inaceptable.
-REGLAS_COMBINACION_ESTILO = {
-    'Casual':       {'Casual': 1.0, 'Deportivo': 0.9, 'Streetwear': 0.9, 'Bohemio': 0.7, 'Minimalista': 0.7, 'Clásico': 0.6, 'Preppy': 0.6},
-    'Clásico':      {'Clásico': 1.0, 'Minimalista': 0.9, 'Elegante': 0.9, 'Preppy': 0.8, 'Smart Casual': 0.8, 'Casual': 0.6},
-    'Deportivo':    {'Deportivo': 1.0, 'Casual': 0.9, 'Streetwear': 0.8, 'Comfy': 1.0},
-    'Elegante':     {'Elegante': 1.0, 'Clásico': 0.9, 'Minimalista': 0.8, 'Romántico': 0.7, 'Glam': 0.8, 'Smart Casual': 0.9},
-    'Minimalista':  {'Minimalista': 1.0, 'Clásico': 0.9, 'Elegante': 0.8, 'Casual': 0.7, 'Streetwear': 0.6},
-    'Bohemio':      {'Bohemio': 1.0, 'Romántico': 0.8, 'Vintage': 0.7, 'Creativo': 0.7, 'Casual': 0.7},
-    'Romántico':    {'Romántico': 1.0, 'Bohemio': 0.8, 'Elegante': 0.7, 'Vintage': 0.6},
-    'Vintage':      {'Vintage': 1.0, 'Bohemio': 0.7, 'Creativo': 0.6, 'Romántico': 0.6},
-    'Preppy':       {'Preppy': 1.0, 'Clásico': 0.8, 'Smart Casual': 0.7, 'Casual': 0.6},
-    'Streetwear':   {'Streetwear': 1.0, 'Casual': 0.9, 'Deportivo': 0.8, 'Grunge': 0.6, 'Creativo': 0.7},
-    'Grunge':       {'Grunge': 1.0, 'Rockero': 0.9, 'Streetwear': 0.6, 'Vintage': 0.5},
-    'Rockero':      {'Rockero': 1.0, 'Grunge': 0.9, 'Glam': 0.7, 'Streetwear': 0.5},
-    'Glam':         {'Glam': 1.0, 'Elegante': 0.8, 'Rockero': 0.7, 'Creativo': 0.6},
-    'Creativo':     {'Creativo': 1.0, 'Bohemio': 0.7, 'Streetwear': 0.7, 'Vintage': 0.6, 'Glam': 0.6},
-    'Smart Casual': {'Smart Casual': 1.0, 'Clásico': 0.8, 'Elegante': 0.9, 'Minimalista': 0.7, 'Preppy': 0.7},
-}
-
-# 3. Matriz de compatibilidad de MATERIALES/TEXTURAS
-# Fomenta el contraste de texturas (ej. algo liso con algo rugoso).
-REGLAS_COMBINACION_MATERIAL = {
-    'Algodón':   {'Algodón': 1.0, 'Jean': 1.0, 'Lana': 0.8, 'Lino': 0.9, 'Poliéster': 0.7, 'Seda': 0.6, 'Cuero': 0.7, 'Sintético': 0.7},
-    'Jean':      {'Jean': 0.8, 'Algodón': 1.0, 'Lana': 0.7, 'Cuero': 0.9, 'Sintético': 0.6, 'Seda': 0.5},
-    'Lana':      {'Lana': 0.8, 'Algodón': 0.8, 'Jean': 0.7, 'Seda': 0.9, 'Cuero': 0.8, 'Poliéster': 0.6},
-    'Lino':      {'Lino': 1.0, 'Algodón': 0.9, 'Seda': 0.7},
-    'Poliéster': {'Poliéster': 0.7, 'Algodón': 0.7, 'Lana': 0.6},
-    'Seda':      {'Seda': 0.7, 'Algodón': 0.6, 'Lana': 0.9, 'Cuero': 0.7, 'Jean': 0.5},
-    'Cuero':     {'Cuero': 0.7, 'Jean': 0.9, 'Algodón': 0.7, 'Lana': 0.8, 'Seda': 0.7, 'Sintético': 0.6},
-    'Sintético': {'Sintético': 0.8, 'Algodón': 0.7, 'Jean': 0.6, 'Poliéster': 0.9},
-}
 
 def _get_compatibility_score(reglas, item1, item2):
-    """Función auxiliar para obtener la puntuación de compatibilidad de las matrices."""
+    """
+    Devuelve la puntuación de compatibilidad entre dos elementos según la matriz dada.
+    Busca en ambas direcciones para asegurar simetría.
+    """
     score1 = reglas.get(item1, {}).get(item2, 0.0)
     score2 = reglas.get(item2, {}).get(item1, 0.0)
     return max(score1, score2)
 
 def calcular_puntuacion_atuendo(atuendo_df):
     """
-    Calcula la puntuación de compatibilidad para un único atuendo (combinación de prendas).
-    Devuelve una puntuación de 0.0 a 1.0, donde 1.0 es una combinación perfecta.
+    Calcula la puntuación de compatibilidad de un atuendo (conjunto de prendas).
+    Considera tanto el estilo como el material de las prendas.
+    Penaliza severamente si los estilos son incompatibles.
     """
     prendas = [row for _, row in atuendo_df.iterrows()]
     if len(prendas) < 2:
@@ -99,8 +49,9 @@ def calcular_puntuacion_atuendo(atuendo_df):
 
 def calcular_atuendos_ponderados(armario_df: pd.DataFrame) -> float:
     """
-    Calcula una puntuación total de "calidad de atuendos" para un armario.
-    En lugar de solo contar, suma las puntuaciones de compatibilidad de cada atuendo válido.
+    Calcula la puntuación total de calidad de atuendos para un armario.
+    Suma las puntuaciones de compatibilidad de cada atuendo válido.
+    Considera bonus por variedad de exteriores.
     """
     if armario_df.empty:
         return 0.0
@@ -140,8 +91,8 @@ def calcular_atuendos_ponderados(armario_df: pd.DataFrame) -> float:
 
 def encontrar_atuendos_validos(armario_df: pd.DataFrame, umbral_puntuacion=0.6):
     """
-    Genera y devuelve una lista de todas las combinaciones de atuendos válidas
-    que superen un umbral de puntuación de compatibilidad.
+    Genera todas las combinaciones de atuendos válidas que superen un umbral de compatibilidad.
+    Incluye combinaciones con y sin prendas exteriores.
     """
     if armario_df.empty:
         return []

@@ -17,47 +17,15 @@ from genetic_algorithm import EcoClosetAG
 from utils import crear_mood_board, graficar_evolucion_fitness
 from analysis import analizar_prenda_mvp
 from outfit_visualizer import create_outfit_image
+from Conocimientos import COLOR_MAP, DESCRIPCIONES_ESTACIONES, PALETAS_POR_ESTACION, TONOS_DE_PIEL, COLORES_DE_OJOS, COLORES_DE_CABELLO, ESTILOS_ROPA
 
 # --- CONFIGURACIÓN Y FUNCIONES AUXILIARES ---
 st.set_page_config(layout="wide", page_title="EcoCloset AG")
-
-COLOR_MAP = {
-    'Marfil': '#F5F5DC', 'Porcelana': '#F2E9E4', 'Marfil Pálido': '#F3EADF', 'Marfil Cálido': '#F5ECCE',
-    'Arena': '#E3CBA7', 'Beige Rosado': '#E0C5B6', 'Beige Neutro': '#DDCDBB', 'Beige': '#D8BBA2',
-    'Canela': '#C68F6F', 'Miel': '#D4A77E', 'Trigueño': '#B99B83', 'Almendra': '#AD8C76',
-    'Castaño': '#8B4513', 'Bronce': '#9C6F44', 'Café Oscuro': '#825A44', 'Dorado': '#B6864B', 'Expresso': '#4B3020',
-    'Marrón oscuro': '#4B3020', 'Marrón café': '#6F4E37', 'Marrón claro': '#A0785A', 'Marrón miel': '#C68E17',
-    'Avellana': '#9B7653', 'Ámbar': '#FFBF00', 'Verde': '#3A8F53', 'Verde oliva': '#808000', 'Verde esmeralda': '#50C878', 'Verde grisáceo': '#8c9b90',
-    'Azul oscuro': '#00008B', 'Azul rey': '#4169E1', 'Azul claro': '#ADD8E6', 'Azul grisáceo': '#6699CC', 'Azul verdoso': '#0d98ba',
-    'Gris': '#808080', 'Gris claro': '#D3D3D3', 'Gris oscuro': '#A9A9A9', 'Negro': '#000000', 'Negro azabache': '#0A0A0A', 
-    'Castaño oscuro': '#3B2A23', 'Castaño medio': '#5C4033', 'Castaño claro': '#795548', 'Castaño ceniza': '#6D615A',
-    'Pelirrojo cobrizo': '#B87333', 'Borgoña': '#800020', 'Rubio platino': '#E2DDC7', 'Rubio ceniza': '#C6C1B1',
-    'Rubio dorado': '#F0D47D', 'Rubio fresa': '#d4a190', 'Rubio oscuro': '#A89975', 'Blanco': '#FFFFFF', 'Gris plata': '#C0C0C0',
-    'Violeta': '#EE82EE', 'Negro natural': '#1C1C1C', 'Castaño rojizo (Caoba)': '#622A22', 'Pelirrojo natural': '#AF4D33',
-    'Azul fantasía': '#4D64E4', 'Rosa fantasía': '#E573B7', 'Violeta fantasía': '#A463D8',
-    'Blanco óptico': '#FDFFFC', 'Rojo rubí': '#9B111E', 'Fucsia': '#FF00FF', 'Magenta': '#FF00FF',
-    'Violeta intenso': '#4F2B9D', 'Plata': '#C0C0C0', 'Gris carbón': '#36454F', 'Azul marino': '#000080',
-    'Verde botella': '#006A4E', 'Amarillo limón': '#FFF44F', 'Azul cobalto': '#0047AB', 'Púrpura': '#800080',
-    'Blanco roto': '#F8F8F8', 'Gris perla': '#D4D4D4', 'Azul polvo': '#B0C4DE', 'Lavanda': '#E6E6FA',
-    'Rosa palo': '#FADADD', 'Menta': '#98FF98', 'Frambuesa suave': '#E30B5D', 'Verde salvia': '#8A9A5B',
-    'Azul cielo': '#87CEEB', 'Gris topo': '#483C32', 'Nude rosado': '#E8C7C8', 'Malva': '#E0B0FF', 'Verde agua': '#B0E0E6',
-    'Marrón chocolate': '#7B3F00', 'Terracota': '#E2725B', 'Mostaza': '#FFDB58', 'Naranja quemado': '#CC5500',
-    'Verde musgo': '#8A9A5B', 'Crema': '#FFFDD0', 'Rojo ladrillo': '#B22222', 'Salmón': '#FA8072', 'Verde militar': '#556B2F',
-    'Coral': '#FF7F50', 'Turquesa': '#40E0D0', 'Amarillo brillante': '#FFEA00', 'Verde césped': '#7CFC00',
-    'Melocotón': '#FFE5B4', 'Rojo amapola': '#E32636', 'Camel': '#C19A6B', 'Multicolor': '#ABA5A5', 'Sintético': '#808080', 'Cuero': '#8B4513'
-}
 
 def color_swatch_html(color_name):
     hex_code = COLOR_MAP.get(color_name, '#FFFFFF')
     border_color = '#333333' if hex_code == '#FFFFFF' else 'transparent'
     return f'<div style="width:20px; height:20px; background-color:{hex_code}; border:1px solid {border_color}; border-radius:50%; display:inline-block; vertical-align:middle; margin-left:10px;"></div>'
-
-DESCRIPCIONES_ESTACIONES = {
-    'Invierno': "Tus rasgos (piel, ojos, pelo) tienen un **subtono frío y un alto contraste** entre ellos. Te favorecen los colores intensos, nítidos y audaces.",
-    'Verano': "Tus rasgos tienen un **subtono frío, pero un contraste más suave y delicado**. Los colores que mejor te sientan son los empolvados, pasteles y suaves.",
-    'Otoño': "Tus rasgos tienen un **subtono cálido y una profundidad terrosa**. Tu paleta ideal se compone de colores ricos, dorados y especiados.",
-    'Primavera': "Tus rasgos tienen un **subtono cálido y un alto contraste lleno de brillo**. Los colores que más te iluminan son los vibrantes, claros y alegres."
-}
 
 # --- ESTADO DE LA SESIÓN ---
 if 'resultados' not in st.session_state: st.session_state.resultados = None
@@ -161,6 +129,7 @@ else:
             moodboard_path = f'moodboards_temp/armario_{i+1}.png'
             crear_mood_board(armario_df, moodboard_path, img_folder='imagenes')
             st.image(moodboard_path, caption=f"Mood board del Armario #{i+1}")
+
             st.metric("Puntuación Fitness", f"{armario_data['fitness']:.4f}")
             st.metric("Puntuación de Atuendos", f"{armario_data['atuendos']:.2f}", help="Puntuación de la calidad y compatibilidad de los atuendos posibles (más alto es mejor).")
             st.metric("Sostenibilidad Promedio", f"{armario_data['sostenibilidad_score']:.2f} / 5.0")
@@ -241,7 +210,7 @@ else:
                             imagen_atuendo_path = create_outfit_image(outfit_actual_df, outfit_filename)
                         
                         if imagen_atuendo_path:
-                            st.image(imagen_atuendo_path, use_column_width=True)
+                            st.image(imagen_atuendo_path, use_container_width=True)
                             for _, prenda in outfit_actual_df.iterrows():
                                 st.markdown(f"- **{prenda['Tipo']}:** {prenda['Nombre']}")
                         else:
